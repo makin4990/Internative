@@ -21,7 +21,7 @@ namespace Business.Concrete
         public IResult Add(Category category)
         {
             _categoryDal.Add(category);
-            return new SuccessResult(Messages.ClinicsAdded);
+            return new SuccessResult(Messages.);
         }
 
         public IResult Delete(Category category)
