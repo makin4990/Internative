@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-   public class EfDirectionDal:EfEntityRepositoryBase<Direction,ReciepeBookDbContext>,IDirectionDal
+   public class EfDirectionDal:EfEntityRepositoryBase<Direction,RecipeBookDbContext>,IDirectionDal
     {
     }
 }

@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using X.PagedList;
 
 namespace Business.Abstract
 {
@@ -12,7 +13,7 @@ namespace Business.Abstract
         IResult Delete(Category category);
         IResult Update(Category category);
         IDataResult<Category> GetCategoryById(int categoryId);
-        IDataResult<Category> GetAllCategory();
+        IDataResult<PagedList<Category>> GetAllCategory(int currentPage, int pageSize);
 
 
     }

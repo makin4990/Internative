@@ -7,12 +7,12 @@ using X.PagedList;
 
 namespace Business.Abstract
 {
-    public interface IReciepeService
+    public interface IRecipeService
     {
         IResult Add(Recipe recipe);
         IResult Update(Recipe recipe);
         IResult Delete(Recipe recipe);
-        IDataResult<List<Recipe>> GetAllRecips(string search, int currentPage, int pageSize);
+        IDataResult<PagedList<Recipe>> GetAllRecips(string search, int currentPage, int pageSize);
         IDataResult<PagedList<Recipe>> GetAllRecipsByCategoryId(int categoryId, int currentPage, int pageSize);
        
 

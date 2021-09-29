@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IReciepeDal:IEntityRepository<Recipe>
+    public interface IRecipeDal:IEntityRepository<Recipe>
     {
     }
 }

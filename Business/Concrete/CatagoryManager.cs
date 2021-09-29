@@ -6,6 +6,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using X.PagedList;
 
 namespace Business.Concrete
 {
@@ -21,27 +22,30 @@ namespace Business.Concrete
         public IResult Add(Category category)
         {
             _categoryDal.Add(category);
-            return new SuccessResult(Messages.);
+            return new SuccessResult(Messages.CategoryAdded);
         }
 
         public IResult Delete(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Delete(category);
+            return new SuccessResult(Messages.CategoryDeleted);
         }
 
-        public IDataResult<Category> GetAllCategory()
+        public IDataResult<PagedList<Category>> GetAllCategory(int currentPage, int pageSize)
         {
-            throw new NotImplementedException();
+            var result = _categoryDal.GetAll().ToPagedList(currentPage,pageSize);
+            return new SuccessDataResult<PagedList<Category>>((PagedList<Category>)result,Messages.CategoryListed);
         }
 
         public IDataResult<Category> GetCategoryById(int categoryId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.Id == categoryId));
         }
 
         public IResult Update(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Update(category);
+            return new SuccessResult(Messages.CategoryUpdated);
         }
     }
 }

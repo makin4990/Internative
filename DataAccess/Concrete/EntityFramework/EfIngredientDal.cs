@@ -1,5 +1,4 @@
 ﻿using Core.DataAccess.EntityFramework;
-using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfReciepeDal:EfEntityRepositoryBase<Recipe,ReciepeBookDbContext>,IReciepeDal
+    public class EfIngredientDal:EfEntityRepositoryBase<Ingredient, RecipeBookDbContext>
     {
     }
 }
