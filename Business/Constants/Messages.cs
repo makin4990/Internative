@@ -12,6 +12,8 @@ namespace Business.Constants
         public static string RecipeUpdated = "Tarif güncellendi";
         public static string RecipeDeleted = "Tarif silindi";
         public static string RecipeListed = "Tarif listelendi";
+        public static string RecipeNameAlreadyExist = "Tarif başlığı sistemde mevcut. Farklı bir başlık giriniz";
+        public static string RecipeIdDoesntExist = "Tarif bulunamadı";
 
         public static string CategoryAdded = "Kategori eklendi.";
         public static string CategoryUpdated = "Kategori güncellendi";
@@ -38,5 +40,8 @@ namespace Business.Constants
         public static string UserDeleted = "Kullanıcı silindi";
         public static string UserListed = "Kullanıcı listelendi";
 
+        
+
+        public static string AuthorizationDenied = "Yetkisiz işlem";
     }
 }

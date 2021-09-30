@@ -62,5 +62,12 @@ namespace WebAPI.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
+        [HttpGet("get-last-recips")]
+        public IActionResult GetLastRecips()
+        {
+            var result = _recipeService.GetLastRecipes();
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
     }
 }

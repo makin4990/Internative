@@ -14,6 +14,7 @@ namespace Business.Abstract
         IResult Delete(Recipe recipe);
         IDataResult<PagedList<Recipe>> GetAllRecips(string search, int currentPage, int pageSize);
         IDataResult<PagedList<Recipe>> GetAllRecipsByCategoryId(int categoryId, int currentPage, int pageSize);
+        IDataResult<List<Recipe>> GetLastRecipes();
        
 
 
