@@ -11,6 +11,6 @@ namespace Entities.Concrete
         public TimeSpan Time { get; set; }
         public double Difficulties { get; set; }
         public int Servings { get; set; }
-        public int ReciepeId { get; set; }
+        public int RecipeId { get; set; }
     }
 }
