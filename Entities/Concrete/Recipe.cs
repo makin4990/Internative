@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-    public class Recipe:IEntity
+    public class Recipe : IEntity
     {
         public int Id { get; }
         public string Title { get; set; }
@@ -13,6 +13,6 @@ namespace Entities.Concrete
         public string Slug { get; set; }
         public int CategoryId { get; set; }
 
-
+       
     }
 }
