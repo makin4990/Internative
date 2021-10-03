@@ -6,16 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Aspects.Logging;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RecipsControler : ControllerBase
+    
+
+    public class RecipesController : ControllerBase
     {
         IRecipeService _recipeService;
         
-        public RecipsControler(IRecipeService recipeService)
+        public RecipesController(IRecipeService recipeService)
         {
             _recipeService = recipeService;
         }
@@ -40,33 +44,48 @@ namespace WebAPI.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpGet("get-all-recips")]
-        public IActionResult GetAllRecips(string search, int currentPage, int pageSize)
+        [HttpGet("get-all-recipes")]
+        public IActionResult GetAllRecipes(string search=null, int currentPage=1, int pageSize=5)
         {
             if (currentPage == 0)
                 currentPage = 1;
             if (pageSize == 0)
                 pageSize = 5;
-           var result = _recipeService.GetAllRecips(search, currentPage, pageSize);
+            var result = _recipeService.GetAllRecipes(search, currentPage, pageSize);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpGet("get-all-recips-by-categoryid")]
-        public IActionResult GetAllRecipsByCategoryId(int categoryId, int currentPage, int pageSize)
+        [HttpGet("get-all-recipes-by-category-id")]
+        public IActionResult GetAllRecipesByCategoryId(int categoryId, int currentPage=1, int pageSize=5)
         {
             if (currentPage == 0)
                 currentPage = 1;
             if (pageSize == 0)
                 pageSize = 5;
-            var result = _recipeService.GetAllRecipsByCategoryId(categoryId, currentPage, pageSize);
+            var result = _recipeService.GetAllRecipesByCategoryId(categoryId, currentPage, pageSize);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpGet("get-last-recips")]
-        public IActionResult GetLastRecips()
+        [HttpGet("get-last-recipes")]
+        public IActionResult GetLastRecipes()
         {
             var result = _recipeService.GetLastRecipes();
             return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("get-recipe-by-id")]
+        public IActionResult GetRecipeById(int recipeId)
+        {
+            var result = _recipeService.GetRecipeById(recipeId);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("get-popular-recipes")]
+        public IActionResult GetPopularRecipes()
+        {
+            var result = _recipeService.GetPopularRecipes();
+            return result.Success ? Ok(result) : BadRequest(result);
+
         }
 
     }

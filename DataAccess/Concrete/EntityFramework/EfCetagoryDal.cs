@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-   public class EfCatagoryDal:EfEntityRepositoryBase<Category,RecipeBookDbContext>,ICategoryDal
+   public class EfCategoryDal:EfEntityRepositoryBase<Category,RecipeBookDbContext>,ICategoryDal
     {
     }
 }

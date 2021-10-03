@@ -44,6 +44,8 @@ namespace WebAPI
             services.AddLocalization(opt=> { opt.ResourcesPath = "Resources"; });
             services.AddMvc()
                 .AddDataAnnotationsLocalization();
+            services.AddSwaggerDocument();
+            
             services.Configure<RequestLocalizationOptions>(opt =>
             {
                 var supportedCultures = new List<CultureInfo>
@@ -84,6 +86,8 @@ namespace WebAPI
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseHttpsRedirection();
+            app.UseSwaggerUi3();
+            app.UseOpenApi();
             
 
             app.UseRouting();

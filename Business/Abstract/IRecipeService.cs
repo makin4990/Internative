@@ -12,10 +12,12 @@ namespace Business.Abstract
         IResult Add(Recipe recipe);
         IResult Update(Recipe recipe);
         IResult Delete(Recipe recipe);
-        IDataResult<PagedList<Recipe>> GetAllRecips(string search, int currentPage, int pageSize);
-        IDataResult<PagedList<Recipe>> GetAllRecipsByCategoryId(int categoryId, int currentPage, int pageSize);
+        IDataResult<PagedList<Recipe>> GetAllRecipes(string search, int currentPage, int pageSize);
+        IDataResult<PagedList<Recipe>> GetAllRecipesByCategoryId(int categoryId, int currentPage, int pageSize);
         IDataResult<List<Recipe>> GetLastRecipes();
-       
+        IDataResult<Recipe> GetRecipeById(int recipeId);
+        IDataResult<List<Recipe>> GetPopularRecipes();
+
 
 
     }

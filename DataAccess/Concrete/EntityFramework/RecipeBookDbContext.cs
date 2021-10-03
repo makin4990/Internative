@@ -7,6 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
+    
     public class RecipeBookDbContext:DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

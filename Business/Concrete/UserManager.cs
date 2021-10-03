@@ -4,9 +4,12 @@ using DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Aspects.Logging;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace Business.Concrete
 {
+    [LogAspect(typeof(FileLogger))]
     public class UserManager : IUserService
     {
         IUserDal _userDal;

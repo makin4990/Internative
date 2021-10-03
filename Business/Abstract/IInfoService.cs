@@ -11,7 +11,7 @@ namespace Business.Abstract
         IResult Add(Info info);
         IResult Update(Info info);
         IResult Delete(Info info);
-        IDataResult<List<Info>> GetAllInfoByByRecipeId(int reciepeId);
+        IDataResult<List<Info>> GetAllInfoByByRecipeId(int recipeId);
 
     }
 }

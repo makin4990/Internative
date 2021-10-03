@@ -8,5 +8,6 @@ namespace DataAccess.Abstract
 {
     public interface IRecipeDal:IEntityRepository<Recipe>
     {
+        
     }
 }
