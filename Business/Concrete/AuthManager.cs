@@ -4,21 +4,13 @@ using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
 using Entities.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Core.Aspects.Logging;
-using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace Business.Concrete
 {
-    [LogAspect(typeof(FileLogger))]
     public class AuthManager : IAuthService
     {
         private IUserService _userService;
         private ITokenHelper _tokenHelper;
-
-        
 
         public AuthManager(IUserService userService, ITokenHelper tokenHelper)
         {

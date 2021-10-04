@@ -56,14 +56,21 @@ namespace Business.Concrete
         }
 
         
-        public IDataResult<PagedList<Recipe>> GetAllRecipes(string search, int currentPage, int pageSize)
+        public IDataResult<PagedList<Recipe>> GetAllRecipes(int currentPage=1, int pageSize=5)
+        {
+            var result = _recipeDal.GetAll().ToPagedList(currentPage, pageSize);
+            return new SuccessDataResult<PagedList<Recipe>>((PagedList<Recipe>)result, Messages.RecipeListed);
+
+        }
+
+        public IDataResult<PagedList<Recipe>> SearchAllRecipes(string search, int currentPage = 1, int pageSize = 5)
         {
             var result = _recipeDal.GetAll(r => r.Title.Contains(search)).ToPagedList(currentPage, pageSize);
             return new SuccessDataResult<PagedList<Recipe>>((PagedList<Recipe>)result, Messages.RecipeListed);
 
         }
 
-        public IDataResult<PagedList<Recipe>> GetAllRecipesByCategoryId(int categoryId, int currentPage, int pageSize)
+        public IDataResult<PagedList<Recipe>> GetAllRecipesByCategoryId(int categoryId, int currentPage=1, int pageSize=5)
         {
             var result = _recipeDal.GetAll(r => r.CategoryId == categoryId).ToPagedList(currentPage, pageSize);
             return new SuccessDataResult<PagedList<Recipe>>((PagedList<Recipe>)result, Messages.RecipeListed);

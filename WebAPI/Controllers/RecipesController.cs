@@ -45,13 +45,24 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("get-all-recipes")]
-        public IActionResult GetAllRecipes(string search=null, int currentPage=1, int pageSize=5)
+        public IActionResult GetAllRecipes(int currentPage=1, int pageSize=5)
         {
             if (currentPage == 0)
                 currentPage = 1;
             if (pageSize == 0)
                 pageSize = 5;
-            var result = _recipeService.GetAllRecipes(search, currentPage, pageSize);
+            var result = _recipeService.GetAllRecipes(currentPage, pageSize);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("search-recipes")]
+        public IActionResult SearchAllRecipes(string search = null, int currentPage = 1, int pageSize = 5)
+        {
+            if (currentPage == 0)
+                currentPage = 1;
+            if (pageSize == 0)
+                pageSize = 5;
+            var result = _recipeService.SearchAllRecipes(search, currentPage, pageSize);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 

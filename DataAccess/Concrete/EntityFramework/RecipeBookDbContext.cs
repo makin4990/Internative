@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ReciepeBook;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=BILGISLEM;Database=RecipeBook;Trusted_Connection=true");
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Direction> Directions { get; set; }
