@@ -8,9 +8,9 @@ namespace Entities.Concrete
   public class Info:IEntity
     {
         public int Id { get; set; }
-        public TimeSpan Time { get; set; }
+        public string Time { get; set; }
         public double Difficulties { get; set; }
-        public int Servings { get; set; }
+        public string Servings { get; set; }
         public int RecipeId { get; set; }
     }
 }
